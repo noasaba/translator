@@ -12,56 +12,72 @@ Ensure you have Docker installed on your system. Follow these steps:
    ```bash
    git clone <repository-url>
    cd <repository-name>
+   ```
 
-    Build the Docker image:
+2. Build the Docker image:
+   ```bash
+   docker build -t translator-discord-bot .
+   ```
 
-    docker build -t translator-discord-bot .
-
-2. Run the Docker Container
+### 2. Run the Docker Container
 
 Run the container using the following command:
 
+```bash
 docker run -d --name translator-bot \
   -e DISCORD_TOKEN=<your-discord-token> \
   -e DEEPL_API_KEY=<your-deepl-api-key> \
   translator-discord-bot
+```
 
-Replace <your-discord-token> and <your-deepl-api-key> with your actual credentials.
-3. Access Logs (Optional)
+Replace `<your-discord-token>` and `<your-deepl-api-key>` with your actual credentials.
+
+### 3. Access Logs (Optional)
 
 To view the bot's logs, use:
 
+```bash
 docker logs -f translator-bot
+```
 
-4. Stopping and Removing the Container
+### 4. Stopping and Removing the Container
 
 To stop the container:
 
+```bash
 docker stop translator-bot
+```
 
 To remove the container:
 
+```bash
 docker rm translator-bot
+```
 
-5. Updating the Bot
+### 5. Updating the Bot
 
 If there are updates to the bot:
 
-    Pull the latest changes:
+1. Pull the latest changes:
+   ```bash
+   git pull
+   ```
 
-git pull
+2. Rebuild the Docker image:
+   ```bash
+   docker build -t translator-discord-bot .
+   ```
 
-Rebuild the Docker image:
+3. Restart the container:
+   ```bash
+   docker stop translator-bot
+   docker rm translator-bot
+   docker run -d --name translator-bot \
+     -e DISCORD_TOKEN=<your-discord-token> \
+     -e DEEPL_API_KEY=<your-deepl-api-key> \
+     translator-discord-bot
+   ```
 
-docker build -t translator-discord-bot .
-
-Restart the container:
-
-    docker stop translator-bot
-    docker rm translator-bot
-    docker run -d --name translator-bot \
-      -e DISCORD_TOKEN=<your-discord-token> \
-      -e DEEPL_API_KEY=<your-deepl-api-key> \
-      translator-discord-bot
+---
 
 Enjoy using the Translator Discord Bot!
