@@ -10,8 +10,8 @@ Ensure you have Docker installed on your system. Follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
+   git clone https://github.com/noasaba/translator.git
+   cd translator
    ```
 
 2. Build the Docker image:
